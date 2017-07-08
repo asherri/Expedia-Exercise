@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/asherri/Expedia-Exercise.svg?branch=master)](https://travis-ci.org/asherri/Expedia-Exercise)
+
 **SETUP**
 * `$ git clone https://github.com/asherri/Expedia-Exercise.git`
 * `$ cd Expedia-Exercise`
