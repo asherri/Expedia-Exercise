@@ -1,3 +1,4 @@
+Servver side API to consume Offers JSON for expedia.
 [![Build Status](https://travis-ci.org/asherri/Expedia-Exercise.svg?branch=master)](https://travis-ci.org/asherri/Expedia-Exercise)
 
 **SETUP**
