@@ -1,55 +1,70 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thmyeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Hotel Offers</title>
-</head>
-<body>
-<div>
-    <form method="get" action="/">
-        <div>
-            <h3>Looking For Best Offers: </h3>
-            <div>
-                <label for="destinationCity">Destination City: </label>
-                <input type="text" id="destinationCity" name="destinationCity" />
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <title>Hotel Offers</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="form-inline">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-heading">Find Offers</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form method="get" action="/">
+                            <div class="form-group ">
+                                <h2>Looking For Best Offers: </h2>
+                                <div class="form-group ">
+                                    <label for="destinationCity">Destination City: </label>
+                                    <input class="form-control" type="text" id="destinationCity" name="destinationCity" />
+                                </div>
+                                <div class="form-group ">
+                                    <label for="minTripStartDate">Min Trip Start Date: </label>
+                                    <input class="form-control" type="text" id="minTripStartDate" name="minTripStartDate" placeholder="yyyy-mm-dd" />
+                                </div>
+                                <div class="form-group ">
+                                    <label for="maxTotalRate">Max Total Rate: </label>
+                                    <input class="form-control" type="text" id="maxTotalRate" name="maxTotalRate" />
+                                </div>
+                                <button class="btn btn-default" type="submit">Find</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div>
-                <label for="minTripStartDate">Min Trip Start Date: </label>
-                <input type="text" id="minTripStartDate" name="minTripStartDate" placeholder="yyyy-mm-dd" />
+
+            <div class="col-md-10">
+                <ul class="media-list" th:if="${NOT offerDetails.offers.isEmpty()}">
+                    <li th:each="hotel : ${offerDetails.offers.Hotel}" class="media">
+                        <div class="media-left">
+                            <img th:src="${hotel.hotelInfo.hotelImageUrl}" />
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading" th:text="${hotel.hotelInfo.hotelName} + ',' + ${hotel.destination.city}">
+                            </h3>
+                            <h4 th:text="${hotel.hotelPricingInfo.averagePriceValue} + ' ' + ${hotel.hotelPricingInfo.currency}"></h4>
+                            <p th:text="${hotel.hotelInfo.description}"></p>
+                        </div>
+                    </li>
+                </ul>
+                <div th:if="${offerDetails.offers.isEmpty()}">
+                    <span>Sorry, there's Offers found.</span>
+                </div>
             </div>
-            <div>
-                <label for="maxTripStartDate">Max Trip Start Date: </label>
-                <input type="text" id="maxTripStartDate" name="maxTripStartDate" placeholder="yyyy-mm-dd" />
-            </div>
-            <div>
-                <label for="lengthOfStay">Length of Stay: </label>
-                <input type="text" id="lengthOfStay" name="lengthOfStay"/>
-            </div>
-            <div>
-                <label for="maxTotalRate">Max Total Rate: </label>
-                <input type="text" id="maxTotalRate" name="maxTotalRate" />
-            </div>
-            <button type="submit">Find</button>
         </div>
-    </form>
-</div>
-
-<div>
-    <ul th:if="${NOT offerDetails.offers.isEmpty()}">
-        <span th:each="hotel : ${offerDetails.offers.Hotel}">
-        <li>
-            <span th:text="${hotel.hotelInfo.hotelName}"></span>
-        </li>
-        </span>
-    </ul>
-    <div th:if="${offerDetails.offers.isEmpty()}">
-       <span>Sorry, there's Offers found.</span>
-    </div>
-</div>
-
-
-</body>
+    </body>
 </html>
