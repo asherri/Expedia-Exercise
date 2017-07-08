@@ -1,13 +1,13 @@
 language: java
 jdk:
-  - oraclejdk8
+- oraclejdk8
 install:
-  - mvn -N io.takari:maven:wrapper
-  - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+- mvn -N io.takari:maven:wrapper
+- "./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V"
 deploy:
   provider: heroku
   api_key:
-    secure: 9EF1FA165F2DB4560F54B8200E2C4C3B147D9E39BC551B2FD0FECD05A41BA692,42B1F30DA78FADEF02E0E3ACA9E574AE775A7E9F182DB5959044A6A216295C77
+    secure: X3qFlMgbKo3mHYFNqCgbZvZCeFglxeXM00fFY8rjmhBMKePRjLm1dkcZ/hBucsiMcUERHfSydl5b+PJDeb17VVMq8cVKEczcOg7GavDJPV692sYS7cOEyvkIuR3kYQfAgdw99uOJLbrpTI9UnKlT7UoONmavp/1TBbZCMQe+bEVsjcvdy+Do68lJLZImNnHRCeNC+Zb8VQkQLoWiJLMPLoRzJxjevJhrmkx/1qIsgQtUKs/vk+qk9xYav1GcolmM2biAX2W+fb+SoXj7rvMeIb5TVQ6I8eMLWo6ZDUI87zUuh664VAh/22F0TP7vq6/5WUICRNaBk07SEK2TCXntshsOGYJI4zsG2tWlNtUq41xoMzOAbPY9YH2iryI2ZBmlY3I4SVesXCXN9PYxsmsj6ymlrbdAGtIgpDb3IfIVOgGp7Q3dHnDbje/mZ8jUUJM37gvDSUXqui4yWC6XTkQryk+8EjfFqx3F4VqUfkhTvCfZLwwxyPAOpfPQA/bVx1vVhXX99WzpkD0RTHzY0Q3kjxAppC1UbBMF4QH3J028gF9Gs4YjqOnK5zWX5nzm1Bj6CgknePrTUvdHh0xBOiybr3XkYEFQv1YFahuKey+ix+dyFnjXXc9yJzgVFZKGVlb8afXlQqVeb+ZksKUEmXSds7sRp3k6nNcvHt91s+XbEtg=
   app: sherri-exercise
   on:
     repo: asherri/Expedia-Exercise
