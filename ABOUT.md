@@ -17,5 +17,7 @@
 * Learned a lot of experience to Setup Heroku Cloud.
 * Learned a lot to handle Json response best practice.
 * Leaned new knowledge to work with thymeleaf.
+* Working hardly to configure the project with Travis-ci. 
+but unfortunately, it's not work, seems its a machine issues with Travis tools
 
 
