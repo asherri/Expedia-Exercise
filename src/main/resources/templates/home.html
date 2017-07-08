@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thmyeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Hotel Offers</title>
+</head>
+<body>
+<div>
+    <form method="get" action="/">
+        <div>
+            <h3>Looking For Best Offers: </h3>
+            <div>
+                <label for="destinationCity">Destination City: </label>
+                <input type="text" id="destinationCity" name="destinationCity" />
+            </div>
+            <div>
+                <label for="minTripStartDate">Min Trip Start Date: </label>
+                <input type="text" id="minTripStartDate" name="minTripStartDate" placeholder="yyyy-mm-dd" />
+            </div>
+            <div>
+                <label for="maxTripStartDate">Max Trip Start Date: </label>
+                <input type="text" id="maxTripStartDate" name="maxTripStartDate" placeholder="yyyy-mm-dd" />
+            </div>
+            <div>
+                <label for="lengthOfStay">Length of Stay: </label>
+                <input type="text" id="lengthOfStay" name="lengthOfStay"/>
+            </div>
+            <div>
+                <label for="maxTotalRate">Max Total Rate: </label>
+                <input type="text" id="maxTotalRate" name="maxTotalRate" />
+            </div>
+            <button type="submit">Find</button>
+        </div>
+    </form>
+</div>
+
+<div>
+    <ul th:if="${NOT offerDetails.offers.isEmpty()}">
+        <span th:each="hotel : ${offerDetails.offers.Hotel}">
+        <li>
+            <span th:text="${hotel.hotelInfo.hotelName}"></span>
+        </li>
+        </span>
+    </ul>
+    <div th:if="${offerDetails.offers.isEmpty()}">
+       <span>Sorry, there's Offers found.</span>
+    </div>
+</div>
+
+
+</body>
+</html>
