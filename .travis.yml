@@ -1,0 +1,10 @@
+language: java
+jdk:
+  - oraclejdk8
+deploy:
+  provider: heroku
+  api_key:
+    secure: 9EF1FA165F2DB4560F54B8200E2C4C3B147D9E39BC551B2FD0FECD05A41BA692,42B1F30DA78FADEF02E0E3ACA9E574AE775A7E9F182DB5959044A6A216295C77
+  app: sherri-exercise
+  on:
+    repo: asherri/Expedia-Exercise
